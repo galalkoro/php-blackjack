@@ -1,17 +1,33 @@
 <?php
 
-namespace Blackjack;
+require 'Card.php';
+require  'Deck.php';
+require 'Suit.php';
 
 class Blackjack
 {
 private player $player;
-private dealer $dealer;
+private Player $dealer;
 private deck $deck;
+
+    public function __construct()
+    {
+        $deck = new Deck();
+        $deck->shuffle();
+
+        foreach ($deck->getCards() as $card){
+            echo $card->getUnicodeCharacter(true);
+            echo '<br>';
+        }
+
+        $this->player = new Player($deck);
+        $this->dealer = new Player($deck);
+    }
 
     /**
      * @return player
      */
-    public function getPlayer(): player
+    public function getPlayer()
     {
         return $this->player;
     }
@@ -19,7 +35,7 @@ private deck $deck;
     /**
      * @return dealer
      */
-    public function getDealer(): dealer
+    public function getDealer()
     {
         return $this->dealer;
     }
@@ -27,8 +43,12 @@ private deck $deck;
     /**
      * @return deck
      */
-    public function getDeck(): deck
+    public function getDeck()
     {
         return $this->deck;
     }
 }
+
+
+
+?>
