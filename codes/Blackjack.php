@@ -15,10 +15,10 @@ private deck $deck;
         $deck = new Deck();
         $deck->shuffle();
 
-        foreach ($deck->getCards() as $card){
+       /* foreach ($deck->getCards() as $card){
             echo $card->getUnicodeCharacter(true);
             echo '<br>';
-        }
+        }*/
 
         $this->player = new Player($deck);
         $this->dealer = new Player($deck);

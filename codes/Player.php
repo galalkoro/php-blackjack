@@ -26,10 +26,10 @@ class Player {
     /**
      * @return bool
      */
-    public function isLost(): bool
+   /* public function isLost()
     {
         return $this->lost;
-    }
+    }*/
 
     //hit empty method
     public function hit($deck)
@@ -63,3 +63,18 @@ class Player {
         return $this->lost = true;
     }
 }
+
+class Dealer extends Player {
+
+    public function hit($deck)
+    {
+
+        if ($this->getScore() < 15){
+            do{
+                parent::hit($deck);
+            }while ($this->getScore()<15);
+        }
+    }
+}
+
+

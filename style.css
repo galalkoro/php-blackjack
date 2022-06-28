@@ -1,3 +1,23 @@
 .miro{
     text-align: center;
+
+}
+
+#hit{
+    background-color: green;
+    color: aliceblue;
+}
+
+#stand{
+    background-color: blue;
+    color: aliceblue;
+}
+
+#surrender{
+    background-color: red;
+    color: aliceblue;
+}
+
+.cards{
+    font-size: 6em;
 }
