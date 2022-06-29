@@ -3,11 +3,7 @@
 
 }
 
-#cards{
-    font-size: 6em;
-}
-
-#reset .reset{
-    background-color: yellow;
+.cards{
+    font-size: 8em;
 }
 

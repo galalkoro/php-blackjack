@@ -35,17 +35,18 @@ $dealer = $_SESSION["blackjack"]->getDealer();
 
 if (isset($_POST["name"])){
     echo "started";
-    if ($_POST["name"]== "Hit"){
+    if ($_POST["name"]=== "Hit"){
         echo "Player hit";
     }
-    elseif ($_POST["name"]== "Stand"){
+    elseif ($_POST["name"]=== "Stand"){
         echo "player stand";
     }
-    elseif ($_POST["name"]== "Surrender"){
+    elseif ($_POST["name"]=== "Surrender"){
         echo "Player surrender";
        $player->hasLost();
     }
 }
+
 
 ?>
 
@@ -75,7 +76,7 @@ if (isset($_POST["name"])){
 
     <!-- ICON ROW 1 -->
     <div class="row center-xs center-sm center-md center-lg">
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 cards" >
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 cards">
 
             <h4>Player cards:</h4>
             <p>
@@ -118,7 +119,7 @@ if (isset($_POST["name"])){
             <button class="btn border-primary" type="submit" id="hit" value="Hit" name="hit">Hit</button>
             <button class="btn border-primary" type="submit" id="stand" value="Stand" name="stand">stand</button>
             <button class="btn border-primary" type="submit" id="surrender" value="Surrender" name="surrender">Surrender</button>
-            <button class="btn border-primary" type="submit" id="reset" value="reset" name="name">reset</button>
+            <button class="btn border-primary" type="reset" id="reset" value="reset" name="reset">reset</button>
             </form>
         </div>
     </div>
