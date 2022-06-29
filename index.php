@@ -7,9 +7,8 @@
 // This line makes PHP behave in a more strict way
 declare(strict_types=1);
 
-
-require 'codes/Blackjack.php';
-require 'codes/Player.php';
+require_once 'codes/Blackjack.php';
+require_once 'codes/Player.php';
 
 
 // Use this function when you need to need an overview of these variables
@@ -36,20 +35,19 @@ $dealer = $_SESSION["blackjack"]->getDealer();
 
 if (isset($_POST["name"])){
     echo "started";
-    if ($_POST["name"]=== "Hit"){
+    if ($_POST["name"]== "Hit"){
         echo "Player hit";
-    }elseif ($_POST["name"]=== "Stand"){
+    }
+    elseif ($_POST["name"]== "Stand"){
         echo "player stand";
-    }elseif ($_POST["name"]=== "Surrender"){
+    }
+    elseif ($_POST["name"]== "Surrender"){
         echo "Player surrender";
-        $player->hasLost();
+       $player->hasLost();
     }
 }
 
 ?>
-
-
-
 
 <!doctype html>
 <html lang="en">
@@ -66,44 +64,63 @@ if (isset($_POST["name"])){
     <title>php-blackjack</title>
 </head>
 <body>
-<div class="miro">
-    <form method="POST" action="index.php" ">
-        <button class="btn border-primary" type="submit" id="hit" value="Hit" name="hit">Hit</button>
-        <button class="btn border-primary" type="submit" id="stand" value="Stand" name="stand">stand</button>
-        <button class="btn border-primary" type="submit" id="surrender" value="Surrender" name="surrender">Surrender</button>
 
-    </form>
-</div>
-<div class="miro">
-   <h1>Player cards:</h1>
-    <section class="cards">
-        <?php
-        foreach($player->getCards() as $card){
-            echo $card->getUnicodeCharacter(true);
-        }
-        ?>
-    </section>
+<div class="container">
+    <div class="row center-xs center-sm center-md center-lg">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        </div>
+    </div>
+    <h2>BlackJack</h2>
+    <p>PHP OOP</p>
 
-</div>
+    <!-- ICON ROW 1 -->
+    <div class="row center-xs center-sm center-md center-lg">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 cards" >
 
-<div class="miro">
-  <h1> Dealer cards:</h1>
-    <section class="cards">
-        <?php
-        foreach($dealer->getCards() as $card){
-            echo $card->getUnicodeCharacter(true);
-        }
-        ?>
-    </section>
-</div>
+            <h4>Player cards:</h4>
+            <p>
+                <?php
+                foreach($player->getCards() as $card){
+                    echo $card->getUnicodeCharacter(true);
+                }
+                ?>
+            </p>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 cards">
+            <h4>Dealer cards</h4>
+            <p>
+                <?php
+                foreach($dealer->getCards() as $card){
+                    echo $card->getUnicodeCharacter(true);
+                }
+                ?>
 
-<div class="miro">
-    <?php
-    if ($dealer->hasLost()){
-        echo "Dealer loses";
-    } else if($player->hasLost()){
-        echo "Player loses";
-    }
-    ?>
-</div>
+            </p>
+        </div>
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
+            <h4>Winner Score</h4>
+            <p>
+                <?php
+                if ($dealer->hasLost()){
+                    echo "Dealer loses";
+                }
+                 elseif($player->hasLost()){
+                    echo "Player loses";
+                }
+                ?>
+            </p>
+
+        </div>
+
+
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4" id="reset">
+            <form method="POST" action="index.php" ">
+            <button class="btn border-primary" type="submit" id="hit" value="Hit" name="hit">Hit</button>
+            <button class="btn border-primary" type="submit" id="stand" value="Stand" name="stand">stand</button>
+            <button class="btn border-primary" type="submit" id="surrender" value="Surrender" name="surrender">Surrender</button>
+            <button class="btn border-primary" type="submit" id="reset" value="reset" name="name">reset</button>
+            </form>
+        </div>
+    </div>
+
 </body>
