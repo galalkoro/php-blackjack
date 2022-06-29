@@ -20,10 +20,10 @@ private deck $deck;
             echo '<br>';
         }*/
 
+
         $this->player = new Player($deck);
         $this->dealer = new Player($deck);
     }
-
     /**
      * @return player
      */
@@ -43,7 +43,7 @@ private deck $deck;
     /**
      * @return deck
      */
-    public function getDeck()
+    public function getDeck(): deck
     {
         return $this->deck;
     }
@@ -51,4 +51,3 @@ private deck $deck;
 
 
 
-?>
